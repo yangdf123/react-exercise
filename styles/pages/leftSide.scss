@@ -26,29 +26,23 @@ $bgColor:#607d8b;
   }
   .sidebarContent {
     overflow: hidden;
-    input[type="checkbox"] {
-      display: none;
-    }
-    label {
-      text-indent: 16px;
+    .checkboxFont {
+      position: absolute; top: 50%; left: 0;
+      width: 14px; height: 14px;
+      margin-top: -7px;
+      line-height: 14px; text-align: center;
+      border: 1px solid $fontColor1; border-radius: 4px;
       cursor: pointer;
     }
-    input[type="checkbox"] + label:before {
-      display: inline-block;
-      width: 14px; line-height: 14px;
-      margin-right: 16px;
-      border: 1px solid $fontColor3; -webkit-border-radius:4px; -moz-border-radius:4px; border-radius:4px;
-      content: "\00a0"; font-size: 14px;
-      vertical-align: middle;
-    }
-    input[type="checkbox"]:checked + label:before {
-      content: "✔️️";
-      line-height: 14px;
-    }
     p {
+      position: relative;
       line-height: 26px;
       color: $fontColor2;
-      span {
+      span.name {
+        display: inline-block;
+        text-indent: 32px;
+      }
+      span.num {
         float: right;
         width: 40px;
         background-color: #516a76;
@@ -59,8 +53,13 @@ $bgColor:#607d8b;
     ul {
       padding: 8px 8px 15px 31px;
       li {
+        position: relative;
         padding: 5px 0;
-        span {float: right; color: $fontColor3;}
+        span.name {
+          display: inline-block;
+          text-indent: 32px;
+        }
+        span.num {float: right; color: $fontColor3;}
       }
     }
   }
