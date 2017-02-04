@@ -12,14 +12,48 @@ let recruitItems = [
 	]}
 ];
 
+class RecruitJob extends Component {
+	constructor(props) {
+		super(props);
+	}
+	render() {
+		return (
+			<ul>
+				{
+					this.props.jobLists.map((ele,i)=>(
+						<li key={i}>
+							<input type="checkbox" />
+							<label>{ele.position}</label>
+							<span>{ele.num}</span>
+						</li>
+					))
+				}
+			</ul>
+		);
+	}
+}
+
 class Department extends Component {
 	constructor(props) {
 		super(props);
 	}
 	render() {
-		console.log('items is:',this.props.items);
 		return (
-			<div></div>
+			<div>
+				{
+					this.props.items.map((item,index)=>(
+						<div key={index} className="sidebarContent">
+							<p>
+								<input type="checkbox" />
+								<label>{item.department}</label>
+								<i className="triangleDown" />
+								<span>{item.total}</span>
+							</p>
+							<RecruitJob jobLists={item.children} />
+						</div>
+					))
+				}
+			</div>
 		);
 	}
 }
@@ -31,8 +65,8 @@ export class LeftSide extends Component {
 	render() {
 		return (
 			<div className="sidebar">
-				<p>招聘职位<span>清空</span></p>
-				<Department items={recruitItems}/>
+				<p className="sidebarHeader">招聘职位<span>清空</span></p>
+				<Department items={recruitItems} />
 			</div>
 		);
 	}
